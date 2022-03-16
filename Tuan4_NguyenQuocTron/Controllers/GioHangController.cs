@@ -80,6 +80,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             ViewBag.Tongsoluongsanpham =TongSoLuongSanPham();
+            ViewBag.Tile = null;
             return View(lstGiohang);
         }
         public ActionResult GioHangPartial()
@@ -90,7 +91,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
             return PartialView();
 
         }
-        public ActionResult XoaGiohang(int id)
+        public ActionResult XoaGiohang(int? id)
         {
             List < GioHang > lstGiohang = Laygiohang(); 
             GioHang sanpham = lstGiohang.SingleOrDefault(n => n.masach == id); 
@@ -107,9 +108,10 @@ namespace Tuan4_NguyenQuocTron.Controllers
             List < GioHang > lstGiohang = Laygiohang();
             GioHang sanpham = lstGiohang.SingleOrDefault(n => n.masach == id);
             Sach sach = data.Saches.SingleOrDefault(n => n.masach == id);
-            if (sach.soluongton < sanpham.isoluong)
+            int slSanPham = int.Parse(collection["txtSolg"].ToString());
+            if (sach.soluongton < slSanPham)
             {
-                return PartialView("ThongBao");
+                return View("ThongBao");
             }
             if (sanpham != null)
             {
@@ -144,6 +146,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
                 }
             }
             Session["GioHang"] = null;
+            ViewBag.Tile = "Đã đặt hàng";
             return RedirectToAction("GioHang");
         }
         

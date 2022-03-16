@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Tuan4_NguyenQuocTron.Models.GioHang>
-@{ ViewBag.Title = "GioHang";
+@{ 
                 Layout = "/Views/Shared/_Layout.cshtml"; }
 
 <h2> Giỏ hàng </h2>
@@ -24,7 +24,7 @@
                             <td> <input type="number" min="1" name="txtSoLg" value="@item.isoluong" /> </td>
                                                 <td> @Html.DisplayFor(modelItem => item.dThanhtien) </td>
                 <td>
-                    <a href="@Url.Action("Detail", "Sach", new { id = item.masach })"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGiohang", new { did = item.masach })
+                    <a href="@Url.Action("Detail", "Sach", new { id = item.masach })"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGiohang", new { @id = item.masach })
                 </td>
         <td><input type="submit" value="Cập nhật" class="btn btn-Success" /> </td>
       }
@@ -44,7 +44,7 @@
         <td colspan="5">
             @Html.ActionLink("Đặt hàng", "Dathang", "GioHang")
         </td>
-
+        <h2>@ViewBag.Title</h2>
 
     </tr>
 </table>

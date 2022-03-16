@@ -1,0 +1,85 @@
+﻿@model Tuan4_NguyenQuocTron.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<style>
+    img {
+        width: 200px;
+        height: 300px;
+    }
+</style>
+<div>
+    <h4>Sach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+            <label class="control-label col-md-2">
+                Loại sách
+            </label>
+       
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.tenloai)
+        </dd>
+
+       
+            <label class="control-label col-md-2">
+                Tên sách
+            </label>
+      
+
+        <dd>
+            @Html.DisplayFor(model => model.tensach)
+        </dd>
+
+      
+            <label class="control-label col-md-2">
+                Hình ảnh
+            </label>
+      
+
+        <dd>
+            <img src="@Model.hinh" />
+           
+        </dd>
+
+        
+            <label class="control-label col-md-2">
+                Gía bán
+            </label>
+      
+
+        <dd>
+            @Html.DisplayFor(model => model.giaban)
+        </dd>
+
+        
+            <label class="control-label col-md-2">
+                Ngày cập nhật
+            </label>
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+   
+            <label class="control-label col-md-2">
+                Số lượng còn
+            </label>
+     
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.masach }) |
+    @Html.ActionLink("Back to List", "ListSach")
+</p>

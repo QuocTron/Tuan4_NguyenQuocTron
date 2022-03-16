@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+        table:hover {
+            border: 1px solid red;
+        }
+
+    th, td {
+        text-align: left;
+        padding: 10px;
+    }
+
+    table tr:nth-child(odd) {
+        background-color: #eee;
+    }
+
+    table tr:nth-child(even) {
+        background-color: white;
+    }
+
+    table tr:nth-child(1) {
+        background-color: skyblue;
+    }
+
+    .option a {
+        color: black;
+    }
+
+        .option a:hover {
+            transform: translateY(100px);
+            color: red;
+        }
+
+    .create {
+        background-color: aqua;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px
+    }
+
+        .create:hover {
+            background-color: yellow;
+            color: red;
+            transform: translateY(2px);
+        }
+</style>
+<h2>Danh sách các thể loại</h2>
+<table border="1px">
+    <tr class="maTheLoai">
+        <th>Mã thể loại</th>
+        <th class="tenTheLoai">Tên thể loại </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.maloai</td>
+            <td>@item.tenloai</td>
+            <td class="option">
+                @Html.ActionLink("Edit", "Edit", new { id = item.maloai }) |
+                @*@Html.ActionLink("Detail", "Detail", new { id = item.maloai }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.maloai })*@
+            </td>
+        </tr>
+}
+</table>
+@Html.ActionLink("Create", "Create", "Theloai", new { @id = "id", @class = "create" })

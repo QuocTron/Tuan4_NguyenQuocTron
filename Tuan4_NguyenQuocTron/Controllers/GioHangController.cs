@@ -198,7 +198,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
             try
             {
                 MailMessage mSG = new MailMessage();
-                mSG.From = new MailAddress("quoctron.200901@gmail.com", "Hiệu sách của Trọn");
+                mSG.From = new MailAddress(MyEmail.Email, "Hiệu sách của Trọn");
                 mSG.To.Add(emailClient); // thêm địa chỉ mail người nhận
                 mSG.Subject = "Thư cảm ơn của Trọn";// Thêm tiêu đề mail;
                 mSG.Body = "Cảm ơn bạn đã mua sản phẩm bên chúng tôi chúng tôi sẽ giao hàng nhanh nhất có thể";
@@ -206,7 +206,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
-                smtp.Credentials = new System.Net.NetworkCredential(ParameterPrivate.Email, ParameterPrivate.Password);
+                smtp.Credentials = new System.Net.NetworkCredential(MyEmail.Email, MyEmail.Password);
                 smtp.Send(mSG);// gửi
                 mSG = null;
             }catch(Exception ex)

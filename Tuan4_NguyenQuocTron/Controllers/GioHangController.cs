@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Tuan4_NguyenQuocTron.Models;
+using Tuan4_NguyenQuocTron.PrivateMail;
 
 namespace Tuan4_NguyenQuocTron.Controllers
 {
@@ -198,7 +199,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
             try
             {
                 MailMessage mSG = new MailMessage();
-                mSG.From = new MailAddress(MyEmail.Email, "Hiệu sách của Trọn");
+                mSG.From = new MailAddress(MyEmail.email, "Hiệu sách của Trọn");
                 mSG.To.Add(emailClient); // thêm địa chỉ mail người nhận
                 mSG.Subject = "Thư cảm ơn của Trọn";// Thêm tiêu đề mail;
                 mSG.Body = "Cảm ơn bạn đã mua sản phẩm bên chúng tôi chúng tôi sẽ giao hàng nhanh nhất có thể";
@@ -206,7 +207,7 @@ namespace Tuan4_NguyenQuocTron.Controllers
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
-                smtp.Credentials = new System.Net.NetworkCredential(MyEmail.Email, MyEmail.Password);
+                smtp.Credentials = new System.Net.NetworkCredential(MyEmail.email, MyEmail.password);
                 smtp.Send(mSG);// gửi
                 mSG = null;
             }catch(Exception ex)

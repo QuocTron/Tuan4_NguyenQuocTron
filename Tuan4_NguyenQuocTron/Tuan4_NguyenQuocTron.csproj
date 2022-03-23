@@ -142,6 +142,7 @@
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
     <Compile Include="MyEmail.cs" />
+    <Compile Include="PrivateMail\MyEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
